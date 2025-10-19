@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Encryptor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Encryptor</h1>
+        <form method="post">
+            <label>Tekst (encrypt/decrypt):</label><br>
+            <textarea name="text" rows="4" cols="50">{{ request.form.get('text','') }}</textarea><br><br>
+            <button type="submit" name="action" value="encrypt">Versleutel</button>
+            <button type="submit" name="action" value="decrypt">Ontsleutel</button>
+        </form>
+
+
+        <h2>Resultaat:</h2>
+        <textarea rows="4" cols="50" readonly>{{ result }}</textarea>
+    </div>
+</body>
+</html>
