@@ -10,21 +10,21 @@
         <h1>Encryptor</h1>
         <form method="post">
             <label>Sleutel:</label><br>
-            <input type="text" name="key" value="{{ key }}" size="60" required><br>
+            <input type="text" name="key" value="{{ key }}"><br> <!--key die gegenereerd of ingevoerd wordt-->
             <button type="submit" name="action" value="generate_key">Genereer nieuwe sleutel</button>
-            <button type="button" onclick="copyKey()">Kopieer sleutel</button><br><br>
+            <button type="button" onclick="copyKey()">Kopieer sleutel</button><br><br> <!--key kan gekopieerd worden-->
             <label>Tekst (encrypt/decrypt):</label><br>
-            <textarea name="text" rows="4" cols="50">{{ request.form.get('text','') }}</textarea><br><br>
+            <textarea name="text" rows="4" cols="50">{{ request.form.get('text','') }}</textarea><br><br> <!--tekst wordt ingevoerd en kan opgehaald worden -->
             <button type="submit" name="action" value="encrypt">Versleutel</button>
             <button type="submit" name="action" value="decrypt">Ontsleutel</button>
         </form>
 
 
         <h2>Resultaat:</h2>
-        <textarea id="result" rows="4" cols="50" readonly>{{ result }}</textarea><br>
+        <textarea id="result" rows="4" cols="50" readonly>{{ result }}</textarea><br> <!--resultaat wordt weergegeven-->
         <button onclick="copyResult()">Kopieer resultaat</button>
     </div>
-<script>
+<script> <!--javascript functie voor het kopieren van de key en resultaat van de versleuteling-->
     function copyKey() {
         const keyField = document.querySelector("input[name='key']");
         keyField.select();

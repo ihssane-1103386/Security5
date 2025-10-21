@@ -10,15 +10,15 @@ def index():
     if request.method == "POST":
         action = request.form["action"]
         if action == "generate_key":
-            key = Fernet.generate_key().decode()
+            key = Fernet.generate_key().decode() #fernet genereert een key (decode om het van een byte naar een string te brengen)
         else:
-            text = request.form["text"]
-            key = request.form["key"]
-            fernet = Fernet(key.encode())
+            text = request.form["text"] #tekst van de gebruiker wordt opgehaald om te versleutelen.
+            key = request.form["key"] #de key wordt opgehaald om de tekst te kunnen versleutelen.
+            fernet = Fernet(key.encode()) #tekst wordt versleuteld
             if action == "encrypt":
-                result = fernet.encrypt(text.encode()).decode()
-            elif action == "decrypt":
-                result = fernet.decrypt(text.encode()).decode()
+                result = fernet.encrypt(text.encode()).decode() #resultaat van encryptie wordt weergegeven
+            elif action == "decrypt": #iemand wil tekst ontsleutelen
+                result = fernet.decrypt(text.encode()).decode() #resultaat ontsleutelen van de versleutelde tekst wordt weergegeven
 
     return render_template("index.html", result=result, key=key)
 
