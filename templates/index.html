@@ -26,7 +26,7 @@
     </div>
 <script>
     function copyKey() {
-        const key = document.querySelector("key")
+        const keyField = document.querySelector("input[name='key']");
         keyField.select();
         document.execCommand("copy");
     }
