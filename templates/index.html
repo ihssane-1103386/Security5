@@ -9,6 +9,9 @@
     <div class="container">
         <h1>Encryptor</h1>
         <form method="post">
+            <label>Sleutel:</label><br>
+            <input type="text" name="key" value="{{ key }}" size="60" required><br>
+            <button type="submit" name="action" value="generate_key">Genereer nieuwe sleutel</button>
             <label>Tekst (encrypt/decrypt):</label><br>
             <textarea name="text" rows="4" cols="50">{{ request.form.get('text','') }}</textarea><br><br>
             <button type="submit" name="action" value="encrypt">Versleutel</button>
@@ -17,7 +20,7 @@
 
 
         <h2>Resultaat:</h2>
-        <textarea rows="4" cols="50" readonly>{{ result }}</textarea>
+        <textarea id="result" rows="4" cols="50" readonly>{{ result }}</textarea><br>
     </div>
 </body>
 </html>
