@@ -24,5 +24,17 @@
         <textarea id="result" rows="4" cols="50" readonly>{{ result }}</textarea><br>
         <button onclick="copyResult()">Kopieer resultaat</button>
     </div>
+<script>
+    function copyKey() {
+        const key = document.querySelector("key")
+        keyField.select();
+        document.execCommand("copy");
+    }
+    function copyResult() {
+        const result = document.getElementById("result")
+        result.select();
+        document.execCommand("copy")
+    }
+</script>
 </body>
 </html>
